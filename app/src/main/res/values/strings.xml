@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CalculatorBMIAPP</string>
+    <string name="header_text">Oblicz swoje BMI</string>
+    <string name="weight_hint">Waga (kg)</string>
+    <string name="height_hint">Wzrost (cm)</string>
+    <string name="calculate_button">Oblicz</string>
+    <string name="bmi_result_prefix">Twoje BMI:</string>
+    <string name="error_empty_fields">Pola nie mogą być puste!</string>
+    <string name="error_zero_values">Wartości muszą być większe od zera!</string>
+</resources>
