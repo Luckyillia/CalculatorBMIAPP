@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Validate inputs
         if (weightStr.isEmpty() || heightStr.isEmpty()) {
-            Toast.makeText(this, R.string.error_empty_fields, Toast.LENGTH_SHORT).show();
+            showAlertDialog(R.string.error_empty_fields);
             return;
         }
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Validate positive numbers
             if (weight <= 0 || heightCm <= 0) {
-                Toast.makeText(this, R.string.error_zero_values, Toast.LENGTH_SHORT).show();
+                showAlertDialog(R.string.error_zero_values);
                 return;
             }
 
@@ -72,9 +72,10 @@ public class MainActivity extends AppCompatActivity {
             String category = getBMICategory(bmi);
 
             resultTextView.setText(result + " - " + category);
+            resultTextView.setTextColor(getStatusColor(bmi));
 
         } catch (NumberFormatException e) {
-            Toast.makeText(this, "Wprowadź poprawne liczby", Toast.LENGTH_SHORT).show();
+            showAlertDialog("Wprowadź poprawne liczby");
         }
     }
 
@@ -88,5 +89,32 @@ public class MainActivity extends AppCompatActivity {
         } else {
             return "Otyłość";
         }
+    }
+    private String getStatusColor(double bmi) {
+        if (bmi < 18.5) {
+            return R.color.status_warning;
+        } else if (bmi < 25) {
+            return R.color.status_good;
+        } else if (bmi < 30) {
+            return R.color.status_warning;
+        } else {
+            return R.color.status_bad;
+        }
+    }
+
+    private void showAlertDialog(String text){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Blad");
+        builder.setMessage(text);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this,"kliknięto OK",Toast.LENGTH_LONG).show();
+
+            }
+        });
+        builder.create().show();
     }
 }
