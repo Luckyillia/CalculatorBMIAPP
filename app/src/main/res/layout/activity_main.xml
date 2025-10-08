@@ -1,55 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:padding="18dp">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:padding="18dp">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/header_text"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="54sp"/>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
-            android:id="@+id/weight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/weight_hint"
-            android:inputType="text"
-            android:textSize="24sp"/>
-        <EditText
-            android:id="@+id/hieght"
+            android:text="@string/header_text"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="54sp"/>
+
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/height_hint"
-            android:inputType="text"
-            android:textSize="24sp"/>
+            android:orientation="horizontal">
+
+        <EditText
+                android:id="@+id/weight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/weight_hint"
+                android:inputType="numberDecimal"
+                android:textSize="24sp"/>
+
+        <EditText
+                android:id="@+id/height"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/height_hint"
+                android:inputType="numberDecimal"
+                android:textSize="24sp"/>
     </LinearLayout>
+
     <Button
-        android:text="@string/calculate_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:textSize="24sp"/>
+            android:id="@+id/button"
+            android:text="@string/calculate_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"/>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/bmi_result_prefix"
-        android:textSize="24sp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bmi_result_prefix"
+            android:textSize="24sp"/>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cos"
-        android:textSize="24sp"/>
+            android:id="@+id/resultTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
 </LinearLayout>
